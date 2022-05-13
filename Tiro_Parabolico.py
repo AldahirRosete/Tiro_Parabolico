@@ -43,12 +43,12 @@ def move():
         y = randrange(-150, 150)
         target = vector(200, y)
         targets.append(target)
-
+    # Hace que el movimiento de los balones sea más rápido
     for target in targets:
-        target.x -= 0.5
-
+        target.x -= 0.5*4
+    # Hace que la velocidad de los proyectiles vaya más rápido
     if inside(ball):
-        speed.y -= 0.35
+        speed.y -= 0.35*1.5
         ball.move(speed)
 
     dupe = targets.copy()
@@ -59,6 +59,7 @@ def move():
             targets.append(target)
 
     draw()
+    # Hacer que el juego nunca termine, de manera que los balones al salir de la ventana se re posicionan.
 
     for target in targets:
         if not inside(target):
